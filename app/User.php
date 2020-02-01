@@ -55,6 +55,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Item::class, InventoryItem::class)->whereNull('inventory_items.deleted_at');;
     }
 
+    public function life()
+    {
+        return $this->hasOne(Life::class);
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();
