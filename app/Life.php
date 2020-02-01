@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Life extends Model
 {
+    public const MAXIMUM_LIFES = 5;
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +21,6 @@ class Life extends Model
     ];
 
     protected $casts = [
-        'lives' => 'int',
+        'no_of_lifes' => 'int',
     ];
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Actions\AuthActions;
 
 use App\Helpers\Find;
+use App\Life;
 use App\Profile;
 use App\User;
 use App\UserType;
@@ -46,6 +47,8 @@ class ValidateUserMail
 
         $user->profile()->save($this->createUserProfile(0.00, 0, 0));
 
+        $user->life()->save($this->createUserLife());
+
         DB::commit();
 
         return $user;
@@ -60,5 +63,14 @@ class ValidateUserMail
         $profile->point = $points;
 
         return $profile;
+    }
+
+    private function createUserLife(): Life
+    {
+        $life = new Life;
+
+        $life->no_of_lifes = Life::MAXIMUM_LIFES;
+
+        return $life;
     }
 }
