@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Find;
+use App\Http\Actions\WalletActions\AddItem;
 use App\Http\Actions\WalletActions\BuyItem;
 use App\Http\Actions\WalletActions\UseItem;
 use App\Http\Requests\TradeItem;
@@ -15,6 +16,12 @@ class InventoryController extends Controller
     public function buyItem(TradeItem $request)
     {
         return ['message' => 'Successful', 'balance' => (new BuyItem(Find::findAuthUser($request), $request->items))->execute()];
+    }
+
+    public function addItem(TradeItem $request)
+    {
+        (new AddItem(Find::findAuthUser($request), $request->items))->execute();
+        return ['message' => 'Successful'];
     }
 
     public function useItem(TradeItem $request)

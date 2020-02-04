@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\CoinDeal;
 use App\Item;
 use App\User;
 
@@ -20,5 +21,10 @@ class Find
     public static function GetItemObjectWithUid(string $uid)
     {
         return Item::where(['uid' => $uid])->first();
+    }
+
+    public static function GetCoinObjectWithUid(string $uid)
+    {
+        return CoinDeal::where(['uid' => $uid])->first();
     }
 }

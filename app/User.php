@@ -60,6 +60,31 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne(Life::class);
     }
 
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    public function points()
+    {
+        return $this->hasMany(Point::class);
+    }
+
+    public function coinHistory()
+    {
+        return $this->hasMany(CoinHistory::class);
+    }
+
+    public function nairaHistory()
+    {
+        return $this->hasMany(NairaHistory::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

@@ -23,4 +23,6 @@ class Life extends Model
     protected $casts = [
         'no_of_lifes' => 'int',
     ];
+
+    protected $table = 'lifes';
 }
