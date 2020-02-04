@@ -25,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return 200;
+});
+
 //Open Auth Routes
 
 Route::post('/register', [AuthenticationController::class, 'register'])->name('user.register');
