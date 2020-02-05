@@ -20,7 +20,7 @@ class CoinDeal extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'price' => 'required|float',
+            'price' => 'required|numeric',
             'quantity' => 'required|int',
             'description' => 'required|string',
         ];
@@ -35,7 +35,7 @@ class CoinDeal extends FormRequest
             'quantity.required'  => 'Please input quantity',
 
             'name.string' => 'name must be a string',
-            'price.float' => 'price must be a float',
+            'price.numeric' => 'price must be a numeric',
             'quantity.int' => 'quantity must be a int',
             'description.string' => 'description must be a string',
         ];

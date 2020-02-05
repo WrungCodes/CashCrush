@@ -5,7 +5,7 @@ namespace App\Logics\Payment\Gateways\GladePay;
 use App\Http\Requests\Checkout;
 use App\Logics\Payment\Transfer\PaymentCheckoutGateway;
 
-class GladePayCheckout extends PaymentCheckoutGateway
+class PaystackCheckout extends PaymentCheckoutGateway
 {
     private $gatewayName;
 
