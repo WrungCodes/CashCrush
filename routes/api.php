@@ -44,7 +44,10 @@ Route::post('/reset-password/{token}', [AuthenticationController::class, 'resetP
 
 Route::post('/login', [AuthenticationController::class, 'login'])->name('user.login');
 
-Route::group(['middleware' => ['jwt.verify', 'email.verify']], function () {
+Route::group(['middleware' => ['encrypt', 'jwt.verify', 'email.verify']], function () {
+
+    // Route::get('/activity', [AuthenticationController::class, 'getUser'])->name('user.get');
+
     Route::get('/user', [AuthenticationController::class, 'getUser'])->name('user.get');
     Route::get('/profile', [AuthenticationController::class, 'getUserProfile'])->name('profile.get');
 

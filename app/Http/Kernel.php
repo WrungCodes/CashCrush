@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'encrypt' => \App\Http\Middleware\EncryptResponse::class,
         // 'auth' => \App\Http\Middleware\Authenticate::class,
         'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
         'email.verify' => \App\Http\Middleware\EmailVerificationMiddleware::class,
